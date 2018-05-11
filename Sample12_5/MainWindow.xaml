@@ -1,0 +1,12 @@
+﻿<Window x:Class="Sample12_5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Canvas>
+            <Line Stroke="LightBlue" StrokeThickness="4" X1="50" Y1="30" X2="200" Y2="150"></Line>
+            <Polyline Stroke="LightBlue" StrokeThickness="4" Fill="LightGreen"
+         Points="10,150 30,140 50,170 70,120 90,190 110,100 130,210 150,80 170,230 190,60 210,250 230,150 320,150"></Polyline>
+        </Canvas>
+    </Grid>
+</Window>

@@ -1,0 +1,86 @@
+﻿<Window x:Class="Sample12_12_10.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="878.358" Width="656.343">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle>
+            <Rectangle.Fill>
+                <LinearGradientBrush>
+                    <GradientStop Color="Blue" Offset="0"></GradientStop>
+                    <GradientStop Color="White" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock VerticalAlignment="Center" Grid.Column="1" Margin="5">Диагональный градиент</TextBlock>
+        <TextBlock VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Margin="5">Меняем значение Offset для белого цвета на 0.5</TextBlock>
+        <TextBlock VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" Margin="5">Вертикальный градиент</TextBlock>
+        <TextBlock VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" Margin="5">SpreadMethod=Reflect</TextBlock>
+        <TextBlock VerticalAlignment="Center" Grid.Column="1" Grid.Row="4" Margin="5">Радуга :)</TextBlock>
+        <Rectangle Grid.Row="1">
+            <Rectangle.Fill>
+                <LinearGradientBrush>
+                    <GradientStop Color="Blue" Offset="0"></GradientStop>
+                    <GradientStop Color="White" Offset="0.5"></GradientStop>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Grid.Row="2">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="Blue" Offset="0"></GradientStop>
+                    <GradientStop Color="White" Offset="0.9"></GradientStop>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Grid.Row="3">
+            <Rectangle.Fill>
+                <LinearGradientBrush SpreadMethod="Reflect" StartPoint="0,0" EndPoint="0,0.5">
+                    <GradientStop Color="Blue" Offset="0"></GradientStop>
+                    <GradientStop Color="White" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Grid.Row="4" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="20"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Yellow" Offset="0.0" />
+                    <GradientStop Color="Red" Offset="0.25" />
+                    <GradientStop Color="Blue" Offset="0.75" />
+                    <GradientStop Color="LimeGreen" Offset="1.0" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock FontSize="110" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="It's Gradient Text!"
+                               TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" FontFamily="Vivaldi">
+            <TextBlock.Foreground>
+                <LinearGradientBrush>
+                    <GradientStop Color="Yellow" Offset="0.0" />
+                    <GradientStop Color="Red" Offset="0.25" />
+                    <GradientStop Color="Blue" Offset="0.75" />
+                    <GradientStop Color="LimeGreen" Offset="1.0" />
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
+
+    </Grid>
+</Window>

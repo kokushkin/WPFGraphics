@@ -1,0 +1,44 @@
+﻿<Window x:Class="Sample16_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sample16_3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Ellipse Name="ellipse" Stretch="Uniform" Margin="5">
+            <Ellipse.Fill>
+                <RadialGradientBrush GradientOrigin="0.7,0.3" RadiusX="0.6" RadiusY="0.6">
+                    <GradientStop Color="White" Offset="0"></GradientStop>
+                    <GradientStop Color="Orange" Offset="1"></GradientStop>
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Button Content="StartAnimation" Grid.Row="1" Width="100" Padding="5"
+                        Margin="5">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <PointAnimation Storyboard.TargetName="ellipse"
+                                                        Storyboard.TargetProperty="Fill.GradientOrigin"
+                                                        From="0.7,0.3" To="0.3,0.7" Duration="0:0:6"
+                                                        AutoReverse="True" RepeatBehavior="Forever"></PointAnimation>
+                                <ColorAnimation Storyboard.TargetName="ellipse"
+                                                        Storyboard.TargetProperty="Fill.GradientStops[1].Color"
+                                                        To="LimeGreen" Duration="0:0:6" AutoReverse="True"
+                                                        RepeatBehavior="Forever"></ColorAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+    </Grid>
+</Window>

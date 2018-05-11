@@ -1,0 +1,46 @@
+﻿<Window x:Class="Sample15_15.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sample15_15"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <BeginStoryboard x:Key="bs">
+            <Storyboard Timeline.DesiredFrameRate="{Binding ElementName=txtFrameRate,Path=Text}">
+                <DoubleAnimation Storyboard.TargetName="ellipse"
+                                 Storyboard.TargetProperty="(Canvas.Left)"
+                                 From="0" To="300" Duration="0:0:5"></DoubleAnimation>
+                <DoubleAnimation Storyboard.TargetName="ellipse"
+                                 Storyboard.TargetProperty="(Canvas.Top)"
+                                 From="300" To="0" AutoReverse="True" Duration="0:0:2.5"
+                                 DecelerationRatio="1"></DoubleAnimation>
+            </Storyboard>
+        </BeginStoryboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Button.Click" SourceName="BuildButton">
+            <EventTrigger.Actions>
+                <StaticResource ResourceKey="bs"></StaticResource>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="3" BorderBrush="LightBlue" Margin="5">
+            <Canvas ClipToBounds="True">
+                <Ellipse Name="ellipse" Fill="Orange" Width="20" Height="20"></Ellipse>
+            </Canvas>
+        </Border>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="5">
+            <Label>Частота кадров:</Label>
+            <TextBox Name="txtFrameRate" MinWidth="60"></TextBox>
+        </StackPanel>
+        <Button Name="BuildButton" Grid.Row="2" Padding="5" MaxWidth="100">Построить</Button>
+    </Grid>
+</Window>
